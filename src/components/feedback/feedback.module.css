@@ -1,0 +1,52 @@
+/* Feedback */
+.feedback {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #999;
+}
+
+.wrap {
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.btn {
+  margin: 0;
+  padding: 20px;
+  width: 150px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.btn:nth-child(1):hover,
+.btn:nth-child(1):focus {
+  background-color: green;
+}
+
+.btn:nth-child(2):hover,
+.btn:nth-child(2):focus {
+  background-color: yellow;
+}
+
+.btn:nth-child(3):hover,
+.btn:nth-child(3):focus {
+  background-color: red;
+}
+
+.btn:not(:last-child) {
+  margin-right: 30px;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-weight: 800;
+  font-size: 40px;
+}
+
+.result {
+  font-weight: 600;
+  font-size: 40px;
+}

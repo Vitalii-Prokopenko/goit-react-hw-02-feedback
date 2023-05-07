@@ -8,22 +8,45 @@ class Feedback extends React.Component {
     good: 0,
     neutral: 0,
     bad: 0,
+    total: 0,
+    percentage: 0,
   };
 
-  handleGoodFeedback = () => {   
+  countTotalFeedback = () => {
+    this.setState(prevState => {
+      return {
+        total: prevState.total + 1,
+      };
+    });
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    this.setState((prevState) => {
+      return {
+        percentage: prevState.good / prevState.total * 100,
+      };
+    });
+  };
+
+  handleGoodFeedback = () => {
     this.setState(prevState => {
       return {
         good: prevState.good + 1,
       };
     });
+    this.countTotalFeedback();
+    console.log(this.state.total);
+    this.countPositiveFeedbackPercentage();
   };
 
-  handleNeutralFeedback = () => {    
+  handleNeutralFeedback = () => {
     this.setState(prevState => {
       return {
         neutral: prevState.neutral + 1,
       };
     });
+    this.countTotalFeedback();
+    this.countPositiveFeedbackPercentage();
   };
 
   handleBadFeedback = () => {
@@ -32,26 +55,55 @@ class Feedback extends React.Component {
         bad: prevState.bad + 1,
       };
     });
+    this.countTotalFeedback();
+    this.countPositiveFeedbackPercentage();
   };
 
+  
   render() {
     return (
-      <div className={css["feedback"]}>
-        <div className={css["wrap"]}>
-        <button className={css["btn"]} type="button" onClick={this.handleGoodFeedback}>Good</button>
-        <button className={css["btn"]} type="button" onClick={this.handleNeutralFeedback}>Neutral</button>
-        <button className={css["btn"]} type="button" onClick={this.handleBadFeedback}>Bad</button>
+      <div className={css['feedback']}>
+        <div className={css['wrap']}>
+          <button
+            className={css['btn']}
+            type="button"
+            onClick={this.handleGoodFeedback}
+          >
+            Good
+          </button>
+          <button
+            className={css['btn']}
+            type="button"
+            onClick={this.handleNeutralFeedback}
+          >
+            Neutral
+          </button>
+          <button
+            className={css['btn']}
+            type="button"
+            onClick={this.handleBadFeedback}
+          >
+            Bad
+          </button>
         </div>
-        <p className={css["title"]}>Statistics</p>
-        <p className={css["result"]} style={{ color: 'green' }}>Good: {this.state.good}</p>
-        <p className={css["result"]} style={{ color: 'yellow' }}>Neutral: {this.state.neutral}</p>
-        <p className={css["result"]} style={{ color: 'red' }}>Bad: {this.state.bad}</p>
+        <p className={css['title']}>Statistics</p>
+        <p className={css['result']} style={{ color: 'green' }}>
+          Good: {this.state.good}
+        </p>
+        <p className={css['result']} style={{ color: 'yellow' }}>
+          Neutral: {this.state.neutral}
+        </p>
+        <p className={css['result']} style={{ color: 'red' }}>
+          Bad: {this.state.bad}
+        </p>
+        <p className={css['result']}>Total: {this.state.total}</p>
+        <p className={css['result']}>Positive feedback: {Math.round(this.state.percentage)}%</p>
       </div>
     );
   }
-};
+}
 
-export {Feedback};
+export { Feedback };
 
 // export const Feedback = ({ title, stats }) => (
 //   <section className={css["statistics__wrap"]}>

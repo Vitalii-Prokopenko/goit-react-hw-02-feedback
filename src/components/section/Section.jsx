@@ -10,6 +10,8 @@ export const Section = ({
   title,
   optionsFeedback,
   handleFeedback,
+  countTotalFeedback,
+  countPositiveFeedbackPercentage,
   stateFeedback,
 }) => (
   <section className={css[title]}>
@@ -19,15 +21,15 @@ export const Section = ({
         onLeaveFeedback={handleFeedback}
       />
     </div>
-    {stateFeedback.total === 0 ? (
+    {countTotalFeedback === 0 ? (
       <Notification message={'There is no feedback'} />
     ) : (
       <Statistics
         good={stateFeedback.good}
         neutral={stateFeedback.neutral}
         bad={stateFeedback.bad}
-        total={stateFeedback.total}
-        positivePercentage={stateFeedback.percentage}
+        total={countTotalFeedback}
+        positivePercentage={countPositiveFeedbackPercentage}
       />
     )}
   </section>

@@ -1,6 +1,6 @@
 // Feedback
 import React, { Component } from 'react';
-import { Section } from 'components/section/Section';
+import Section from '../section';
 
 class Feedback extends Component {
   state = {
@@ -10,11 +10,13 @@ class Feedback extends Component {
   };
 
   countTotalFeedback = () => {
-    return (this.state.good + this.state.neutral + this.state.bad);    
+    const { good, neutral, bad } = this.state;
+        return (good + neutral + bad);    
   };
 
   countPositiveFeedbackPercentage = () => {
-    return ((this.state.good / (this.state.good + this.state.neutral + this.state.bad)) * 100);    
+    const { good, neutral, bad } = this.state;
+    return ((good / (good + neutral + bad)) * 100);    
   };
 
   handleFeedback = event => {
@@ -44,4 +46,4 @@ class Feedback extends Component {
   }
 }
 
-export { Feedback };
+export default Feedback;

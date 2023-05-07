@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import css from 'components/statistics/statistics.module.css';
 
-export const Statistics = ({
+const Statistics = ({
   good,
   neutral,
   bad,
@@ -26,6 +26,8 @@ export const Statistics = ({
     </p>
   </>
 );
+
+export default Statistics;
 
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,

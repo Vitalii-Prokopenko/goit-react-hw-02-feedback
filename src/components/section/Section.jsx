@@ -1,12 +1,12 @@
 // Section Feedback
-import { Statistics } from 'components/statistics/Statistics';
-import { FeedbackOptions } from 'components/feedback-options/FeedbackOptions';
-import { Notification } from 'components/notification/Notification';
+import Statistics from '../statistics';
+import FeedbackOptions from '../feedback-options';
+import Notification from '../notification';
 
 import PropTypes from 'prop-types';
 import css from 'components/section/section.module.css';
 
-export const Section = ({
+const Section = ({
   title,
   optionsFeedback,
   handleFeedback,
@@ -34,6 +34,8 @@ export const Section = ({
     )}
   </section>
 );
+
+export default Section;
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,

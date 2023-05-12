@@ -1,13 +1,19 @@
 .feedback {
     padding: 30px;
     display: flex;
-    flex-direction: column;
+    
     justify-content: center;
     align-items: center;
     background-color: #999;
   }
-  
-  .wrap {
-    margin-bottom: 30px;
+
+  .statistics {
+    padding: 30px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #555;
   }
+  
+  
